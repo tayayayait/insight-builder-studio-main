@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객 만족도 설문조사</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            background: #e0e0e0;
+            padding: 8px 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2563EB;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .question-number {
+            font-weight: bold;
+            color: #2563EB;
+        }
+        .question-text {
+            margin-left: 10px;
+        }
+        .options {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #333;
+            display: inline-block;
+        }
+        .checkbox.checked::after {
+            content: '✓';
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            line-height: 14px;
+        }
+        .radio {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .radio.checked::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 2px;
+            background: #333;
+            border-radius: 50%;
+        }
+        .likert-scale {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+        .likert-item {
+            text-align: center;
+        }
+        .likert-item .radio {
+            margin-bottom: 5px;
+        }
+        .likert-label {
+            font-size: 11px;
+            color: #666;
+        }
+        .text-input {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #333;
+            margin-top: 10px;
+            margin-left: 30px;
+            max-width: calc(100% - 30px);
+        }
+        .respondent-id {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .respondent-id label {
+            font-weight: bold;
+        }
+        .respondent-id input {
+            width: 150px;
+            height: 30px;
+            border: 1px solid #333;
+            margin-left: 10px;
+            padding: 0 10px;
+        }
+        @media print {
+            body { padding: 20px; }
+            .page-break { page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 고객 만족도 설문조사</h1>
+    
+    <div class="header-info">
+        <span>설문 일자: 2026년 1월 __일</span>
+        <span>응답자 번호: R___</span>
+    </div>
+
+    <div class="respondent-id">
+        <label>응답자 ID:</label>
+        <span style="border-bottom: 1px solid #333; padding-bottom: 2px;">________________</span>
+    </div>
+
+    <div class="section">
+        <div class="section-title">1. 서비스 품질 평가</div>
+        
+        <div class="question">
+            <span class="question-number">Q1.</span>
+            <span class="question-text">서비스에 대한 전반적인 만족도는 어떠하셨습니까?</span>
+            <div class="likert-scale">
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>불만족<br>(1)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">불만족<br>(2)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">보통<br>(3)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">만족<br>(4)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>만족<br>(5)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">Q2.</span>
+            <span class="question-text">직원의 친절도는 어떠하셨습니까?</span>
+            <div class="likert-scale">
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>불만족<br>(1)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">불만족<br>(2)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">보통<br>(3)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">만족<br>(4)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>만족<br>(5)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">Q3.</span>
+            <span class="question-text">시설의 청결도는 어떠하셨습니까?</span>
+            <div class="likert-scale">
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>불만족<br>(1)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">불만족<br>(2)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">보통<br>(3)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">만족<br>(4)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>만족<br>(5)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">2. 가격 및 재방문 의향</div>
+        
+        <div class="question">
+            <span class="question-number">Q4.</span>
+            <span class="question-text">가격 대비 만족도는 어떠하셨습니까?</span>
+            <div class="likert-scale">
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>불만족<br>(1)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">불만족<br>(2)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">보통<br>(3)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">만족<br>(4)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>만족<br>(5)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">Q5.</span>
+            <span class="question-text">다시 방문할 의향이 있으십니까?</span>
+            <div class="options">
+                <div class="option">
+                    <div class="checkbox"></div>
+                    <span>예</span>
+                </div>
+                <div class="option">
+                    <div class="checkbox"></div>
+                    <span>아니오</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">Q6.</span>
+            <span class="question-text">다른 분께 추천할 의향이 있으십니까?</span>
+            <div class="likert-scale">
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">전혀<br>아님<br>(1)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">아님<br>(2)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">보통<br>(3)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">그렇다<br>(4)</div>
+                </div>
+                <div class="likert-item">
+                    <div class="radio"></div>
+                    <div class="likert-label">매우<br>그렇다<br>(5)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">3. 개선 요청사항</div>
+        
+        <div class="question">
+            <span class="question-number">Q7.</span>
+            <span class="question-text">개선이 필요하다고 생각되는 부분을 선택해 주세요. (복수 선택 가능)</span>
+            <div class="options" style="flex-wrap: wrap;">
+                <div class="option" style="flex-basis: 45%;">
+                    <div class="checkbox"></div>
+                    <span>대기시간 단축</span>
+                </div>
+                <div class="option" style="flex-basis: 45%;">
+                    <div class="checkbox"></div>
+                    <span>주차공간 확대</span>
+                </div>
+                <div class="option" style="flex-basis: 45%;">
+                    <div class="checkbox"></div>
+                    <span>온라인 예약 개선</span>
+                </div>
+                <div class="option" style="flex-basis: 45%;">
+                    <div class="checkbox"></div>
+                    <span>직원 전문성 향상</span>
+                </div>
+                <div class="option" style="flex-basis: 45%;">
+                    <div class="checkbox"></div>
+                    <span>휴게공간 확대</span>
+                </div>
+                <div class="option" style="flex-basis: 45%;">
+                    <div class="checkbox"></div>
+                    <span>가격 인하</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">Q8.</span>
+            <span class="question-text">기타 의견이 있으시면 자유롭게 적어주세요.</span>
+            <div class="text-input"></div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f0f7ff; border-radius: 8px;">
+        <p style="font-size: 16px; font-weight: bold;">설문에 응해 주셔서 감사합니다! 🙏</p>
+        <p style="color: #666; font-size: 12px; margin-top: 10px;">
+            본 설문 결과는 서비스 개선을 위한 목적으로만 사용됩니다.
+        </p>
+    </div>
+
+    <p style="margin-top: 30px; font-size: 11px; color: #999; text-align: center;">
+        ※ 이 문서를 브라우저에서 열고 Ctrl+P로 PDF로 인쇄/저장할 수 있습니다.
+    </p>
+</body>
+</html>
